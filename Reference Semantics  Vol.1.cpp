@@ -1,4 +1,4 @@
-->In assembly we can think references as;
+/* ->In assembly we can think references as;
 
 Type * const ptr = &x; 
 
@@ -68,6 +68,7 @@ int &r{}; // NOT CORRECT.
 -> Functions that have reference return type can be initialized as;
 
 int &r(); //Function Initialization. 
+*/
 
 
 
