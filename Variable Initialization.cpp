@@ -1,3 +1,4 @@
+/* 
 Default Initialization:
 int x; // x is not a specific value. When a variable or porinter is initialized default, it has no determined value.
 
@@ -17,4 +18,4 @@ int x{10};// x=10.
 
 Narrowing Conversion:
 While defining a variable information can be lost, to prevent it uniform initialization can be used since, it does not allow type conversion. 
-
+*/
