@@ -1,4 +1,4 @@
-Primary Value Categories:
+/*Primary Value Categories:
 -> L Value
 -> PR Value
 -> X Value
@@ -28,3 +28,4 @@ PR Value Examples:
 
 
 -> Paranthesis does not change the value category of the expression. 
+*/
