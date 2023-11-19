@@ -27,3 +27,5 @@
 *OOP: Object-Oriented Programming
 
 *RAID: Redundant Array of Independent Disks
+
+*ODR: One Definition Rule
