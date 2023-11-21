@@ -1,3 +1,4 @@
+/*
 -> In C++, attributes are used to attach additional information to entities such as variables, functions, or classes. 
 Attributes provide a way to give the compiler or other tools specific instructions or metadata about how to handle the 
 annotated entities. Attributes were introduced in C++11 and have been expanded in subsequent C++ standards.
@@ -58,4 +59,4 @@ if ([[likely]](condition)) {
 else {
     // code for the unlikely branch
 }
-
+*/
