@@ -52,3 +52,35 @@ int& r = const_cast<int&>(cr);
   
 -> Boolean expression döndüren fonksiyonlara "predicate" denir. Bir parametresi varsa "unary predicate" iki parametresi varsa "binary predicate" adı verilir. 
 
+-> Bir nesneyi farklı türden bir nesneymiş gibi kullanma amaçlı yapılan bir dönüşümdür. 
+
+Ex: 
+double dval {5476.435};
+char* p = reinterpret_cast<char*>(&dval);
+
+Ex: 
+using namespace std;
+ifstream ifr{"numbers.dat", ios::binary};
+// some code
+int a[10];
+ifs.read(reinterpret_cast<char*>(a).sizeof(int)*10);
+
+-> const ifadeler asdece interpret cast ile dönüştürülemezler.
+
+Ex:
+double dval;
+const double* dptr = &dval;
+auto cp1 = const_cast<char*>(reinterpret_cast<const char*>(dptr);
+auto cp2 = reinterpret_cast>char*> (const_cast<double*>(dptr);
+
+-> void* nesne türünden inte* nesne türüne dönüşüm yapılırken static_cast tercih edilir. interpret_cast kullanılması gereken durumlar da vardır.
+
+
+
+
+  
+  
+  
+  
+  
+  */
