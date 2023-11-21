@@ -52,9 +52,10 @@ switch (value) {
 -> [[likely]] and [[unlikely]] : Used to provide branch prediction hints to the compiler, indicating the likely or unlikely paths in conditional statements. 
 These hints can help the compiler generate more efficient code by optimizing for the predicted branch.
 
-  if ([[likely]](condition)) {
+if ([[likely]](condition)) {
     // code for the likely branch
-} else {
+} 
+else {
     // code for the unlikely branch
 }
 
