@@ -2,7 +2,7 @@
 Trailing return type" is a method in C++ for specifying the return type of a function. In this approach, the return type is specified after the function declaration using the auto keyword. 
 */
 
-int bar (int, int);
+int bar (int, int){}
 
 int (*foo())(int,int){
   return bar;
@@ -10,7 +10,7 @@ int (*foo())(int,int){
 
 /* Can be written as; */
 
-int bar2 (int, int);
+int bar2 (int, int){}
 
 auto func(){ // auto deducts int(*)(int, int)
 return bar2;
