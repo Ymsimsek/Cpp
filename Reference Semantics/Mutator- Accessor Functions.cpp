@@ -4,11 +4,11 @@ Mutator functions usually take one or more parameters, representing the new valu
 
 Can be in format of;
 ______________________________
-void set(T&); 
+void set(T&){}
 ______________________________
 or 
 ______________________________
-void mutate(T* ptr);
+void mutate(T* ptr){}
 ______________________________
 
 Accessor Functions: In C++, accessor functions, also known as getter functions, are member functions of a class that provide access to the private data members (attributes) of the class. These functions are used to 
@@ -17,11 +17,11 @@ data member or some derived information. Accessor functions usually do not take 
 
 Can be in format of;
 ______________________________
-void get(const T&); 
+void get(const T&){}
 ______________________________
 or 
 ______________________________
-void access(const T* ptr);
+void access(const T* ptr){}
 ______________________________
 
 */
