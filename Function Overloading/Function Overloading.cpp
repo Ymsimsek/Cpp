@@ -14,8 +14,8 @@ Diğer şart ise signature'larının farklı olmasıdır. Eğer signature ve ret
 redeclaration denir. Parametrelerin cost'luğu ayrı declaration berlirtmez. 
 
 Ex:
-int foo(int);
-int foo(const int); // function redeclaration
+int foo(int){}
+int foo(const int){} // function redeclaration
 
 Function redeclaration yani fonksiyonun ikinci kez tanımlanması syntax hatasıdır. (ODR ihlali).
 
