@@ -112,11 +112,84 @@ void func(char){}
 
 func(3.4); // ambiguity mevcur double to long double promotion olmaz.
 
+-> const tanımlanmış ifadeler argüman olarak geçildiğinde const parametre bekleyen fonksiyonlar ile exact match oluştururlar. 
 
+Ex:
 
+void func(T*){} //(1)
+void func(const T*){} //(2)
 
+void foo(){
+const T t;
+func(&t); //(2) çağırılır. Exact Match
+}
 
+Ex:
+void func(int&){} //(1)
+void func(int){} //(2)
 
+//in main
 
+int x{67};
+func(x); //Ambiguity mevcuttur. Call by value ve call by reference arasında seçilebilirlik farkı bulunmaz. Eğer "x" yerine tam sayı gönderilseydi, L value olmadığı için exact match ile (2) çağırılacaktı.
+
+Ex:
+void func(const int&){}
+void func(int){}
+
+func(12); //Ambiguity mevcut. const ref R value'ya bağlanabilir.
+
+Ex:
+void func (int*){}
+void func (int){}
+
+//in main
+
+func(nullptr);// (1) conversion ile overload edilmesi için seçilir. 2 tane overload mevcut.
+
+Ex:
+void func(int*){}
+void func(double*){}
+
+//in main
+
+func(nullptr);// Ambiguity
+
+Ex:
+void func(int*){}
+void func(double*){}
+void func(std::nullptr_t){}
+
+//in main
+
+func(nullptr); // (3) overload edilir. Exact match
+
+-> enum türlerden inte dönüşüm vardır. enum class ise dönüşmez.
+
+->T&, const T&, T&&, parametreleri fonksiyon tanımlamalarında;
+- L value ile çağırılırlarsa, T&
+- const L value ile çağırılırlarsa, const T&
+- R value ile çağırılırlarsa, T&&
+- L value ile çağırılır ve T& yoksa, const T& çağırılır.
+
+!!!! İSTİSNA !!!!
+
+void func(bool){}
+void func(void*){}
+int x{677};
+func{&x};
+
+-> Normalde ambiguity olmalı çünkü int'ten dönüşüm void*'a da bool'a da vardır. Ancak bu koşullarda void* seçilir.
+
+-> Çoklu parametreli olan fonksiyonlardan birinin seçilebilmesi için en az bir argüman için o parametrede diğerlerine üstünlük kurmalı ve diğer argümalar da daha kötü olmamalıdır.!!!!!!!
+
+Ex:
+void foo(int,double,long){} //(1)
+void foo(bool,float,int){} //(2)
+void foo(long,double,float){} //(3)
+
+foo(12,12,45u); //(1) seçilir.
+foo(12,12.f,45u); // ambiguity oluşur.
+foo(57u,4.5L,true); //(2) seçilir.
 
 */  
