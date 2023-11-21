@@ -21,33 +21,33 @@ Function redeclaration yani fonksiyonun ikinci kez tanımlanması syntax hatası
 
 Fonksiyonun low level const pointer ile tanımlanması redeclaration değildir. 
 Ex:
-void func(int* ptr);
-void func(const int* ptr); // Function Overloading
+void func(int* ptr){}
+void func(const int* ptr){} // Function Overloading
 
 Ex:
-void func(int* ptr);
-void func(int* const ptr); // Function Redeclaration
+void func(int* ptr){}
+void func(int* const ptr){} // Function Redeclaration
 
 Ex:
-void func(int* ptr);
-void func(int const* ptr); // Function Overloading
+void func(int* ptr){}
+void func(int const* ptr){} // Function Overloading
 
 
 Eğer imzalar aynı ve return type farklı ise bu durum syntax hatası olacaktır. 
 
 Ex:
-int foo(int,int);
-double foo(int,int); // Syntax Error
+int foo(int,int){}
+double foo(int,int){} // Syntax Error
 
 Ex:
-void func(int*);
-void func(int[]); // Syntax Error
+void func(int*){}
+void func(int[]){} // Syntax Error
 
 Fonksiyonların int* veya int[] şeklinde tanımlanmalarının farkı yoktur. int[] tanımlaması bir pointer belirtir. 
 
 Ex:
-void func(int(int));
-void func(int(*)(int)); // Function Redeclaration
+void func(int(int)){}
+void func(int(*)(int)){} // Function Redeclaration
 
 int(int) bir function type, int(*)(int) ise bir function pointer type ancak fonksiyon parametresi olduğunda function type, function pointer'a dönüştürülür. !! (Decay) 
 
@@ -55,15 +55,15 @@ Bir türe eş isim vermek yeni tür yaratmaz.
 
 Ex:
 typedef int Nec;
-void func(int);
-void func(Nec); // Function Redeclaration
+void func(int){}
+void func(Nec){} // Function Redeclaration
 
 Signed char ve unsigned char distinct type örnekleridir. 
 
 Ex:
-void func(char);
-void func(signed char);
-void func(unsigned char);// Function Overloading with 3 overloads 
+void func(char){}
+void func(signed char){}
+void func(unsigned char){} // Function Overloading with 3 overloads 
 
 */
 
