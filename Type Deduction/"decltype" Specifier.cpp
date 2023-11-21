@@ -62,9 +62,9 @@ decltype(x++);//int
 -> Fonksiyon çağrı ifadelerinde decltype çıkarımı ifadenin değer kategorisi fonksiyonun geri dönüş türünün nasıl bir değer olduğuna bağlıdır:
 
 Eğer:
-int foo(); //-> PR Value
-int& bar(); //-> L value
-int&& baz(); //-> x Value
+int foo(){}//-> PR Value
+int& bar(){}//-> L value
+int&& baz(){} //-> x Value
 
 Ex:
 
