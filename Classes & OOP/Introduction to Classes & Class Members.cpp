@@ -69,6 +69,81 @@ protected:
   int z;
 };
 
+-> Struct'lar default olarak public access'e sahiptir. 
+
+-> Bir sınıfın public interface'i sınıfın public öğreleri ve sınıfın başlık dosyasında bildirilen global varlıkları içerir.
+
+-> Public, private ve protected interface'ler birer kapsam belirtmez.
+
+-> Sınıfların üye fonksiyon bildirimlerinde redeclaration yapılamaz. Yeniden bildirilemezler. Function overloading mümkündür.
+
+-> Member'ın private veya public olması overloading'i etkilemez.
+
+Ex:
+class Nec{
+private:
+  int foo(int);
+public:
+  int foo(float);
+};
+//in main
+  Nec mynec;
+  mynec.foo(12); // Access control, overload resolution'dan sonra yapılır. Derleyici private fonksiyonu exact match ile seçer ancak access control ardından izin vermez. Erişim kontrolü hatası oluşur.
+
+
+-> Bir işlem yapılırken sıralama şu şekilde yapılır: name lookup -> context control -> access control.
+
+-> Üye fonksiyonlarda isim arama yapılırken, nitelenmemiş isim kullanıldığı durumlarda önce blokta, sonra scope'ta ardından globalde aranır.
+
+Ex:
+class Nec{
+public:
+ void foo();
+ int x; 
+};
+//in main
+  Nec mynec;
+  mynec.Nec::x; // Legaldir ve mynec.x'e eşittir.
+
+
+-> Üye fonksiyon globalde tanımlanırken "inline" keyword'ü ile tanımlanmalıdır. Sınıfın içerisinde tanımlandığında implicitly inline olur. 
+
+Ex:
+class Nec{
+public:
+  void set(int x, int y){ // implicitly inline
+    mx{x};
+    my{y};
+private:
+  int mx,my;
+ };
+
+Ex:
+class Nec{
+public:
+  void set(int x, int y);
+};
+
+void Nec::set(int x, int y){ // İllegal, inline keyword'ü gerekli
+  mx{x};
+  my{y};
+}
+
+-> inline eklenmesinin sebebi ODR'ı ihlal etmemektir. 
+
+-> constexpr fonksiyon olsaydı, inline'a gerek kalmazdı.
+
+-> non-static member function çağırılırken nesnenin adresi ile çağırıldığı için çağrı yapılırken nesnesiz çağırılamazlar. 
+
+Class Declaration: (Forward Declaration)
+
+-> Sınıf nesnesinin non-static data memberları arttıkça hafızada ayrılan alanları artar. 
+
+-> Sınıf içindeki non-static member functions sınıf nesnesinin kaplayacağı yeri arttırmaz.
+
+-> Class definition proje içinde birden fazla kaynak dosyasında token by token aynı olursa ODR çiğnenmez. Class definition'u başlık dosyasına koyarsak proje içindeki cpp'lerde include edersek ODR doğal olarak çiğnenmez.
+
+
 
 
 */
