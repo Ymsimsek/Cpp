@@ -20,6 +20,8 @@ hatadır. Bu hatayı aşmamızı sağlayan araç "mutable" keyword'üdür.
 
 -> Resource Leak: Örneğin bir nesne yaratıldıktan ve kullanıldıktan sonra destructor'un çağırılmayıp kaynakların geri verilmemesidir. 
 
+-> Başka modullerde tanımı yapılmış olan ifadeler için "extern" anahtar kelimesi kullanılabilir. 
+
 
 
 */
