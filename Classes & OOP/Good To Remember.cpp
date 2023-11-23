@@ -26,6 +26,10 @@ hatadır. Bu hatayı aşmamızı sağlayan araç "mutable" keyword'üdür.
 
 -> C++17 sonrasında inline keyword'ü değişkenler için de kullanılabilir hale gelmiştir.
 
+-> Sınıfların static veri elemanları const üye fonksiyonları içinde de değiştirilebilirler.
+
+-> Constructor data initializer list static veri elemanlarına ilk değer veremez. 
+
 
 
 
