@@ -13,5 +13,23 @@ Special Member Functions of Classes:
 
 -> C++'da Dtor, kullanılmayan nesnelerin ömrünü sonlandırmaya yarar.
 
+-> Bu fonksiyonlardan herhangi biri şu statülerinden birinde olabilir:
+- not declared: Fonksiyonun bildirilmemiş olması.
+- user declared: Programcı tarafıntan bildirilmesi
+- implicitly declared: Derleyici tarafından örtülü olarak bildirilmesi
+
+-> Eğer default ctor'dan başka bir ctor tanımlanırsa default ctor undeclared haline gelir. 
+
+-> Eğer programcı default ctor'u bildirirse user-declared olur. (Örn. myClass(); veya myClass()=default;
+
+-> "default" kelimesi yalnızca special member functions ile kullanılabilir.
+
+-> delete kelimesinin kullanımı da fonksiyonu user-declared hale getirir.
+
+-> Bir fonksiyon derleyici tarafından implicitly declared function oluşturursa ya default yapar ya da delete eder. 
+
+-> Eğer bir class'ta kısıtlama, gizleme yoksa sınıf elemanları ortadaysa bunlara "aggregate" denir. Invariant kontrolü programcıya bırakılacak ve invariant kullanılmayacaktır. 
+
+
   */
 
