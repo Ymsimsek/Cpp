@@ -28,4 +28,16 @@ int main(){
 -> Static array bildiriminde öğe sayısını yazma zorunluluğu yoktur.
 static int a[];
 
+-> Sınıfların static data memberları cpp dosyasında tanımlanabilir.
+
+-> Sınıfların static data memberları inline keyword'ü ile tanımlanabilir ve defining declaration olur. Böylelikle header-only libraries oluşturulabilir.
+
+-> C++17 sonrasında inline keyword'ü değişkenler için de kullanılabilir hale gelmiştir.
+
+-> Sınıfların static const ve integer type veri elemanlarına sınıf içinde ilk değer verilebilirler.
+
+-> Sınıfların static veri elemanları const üye fonksiyonları içinde de değiştirilebilirler.
+
+-> Constructor data initializer list static veri elemanlarına ilk değer veremez. 
+
 */
