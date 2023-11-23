@@ -55,4 +55,21 @@ int main(){
 
 -> Artık üretimde new expression'u ile dinamik class kullanmak yerine smart pointerler kullanılır.
 
+Array "new" Expression: new int[expression], şeklinde kullanılabilir. Expression'un değeri neyse o kadar sayıda nesneye sahip bir dinamik dizi oluşturulur.
+
+Ex:
+std::cout<<"Kaç tam sayı"
+std::size_t n;
+std::cin>>n;
+int* p = new int[n];
+
+for(std::size_t i{};i<n;i++)
+  p[i]=i
+
+delete[] p; // array delete
+
+Ex:
+myClass* p = new myClass[10];
+delete[] p;
+
 */
