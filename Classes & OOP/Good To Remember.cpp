@@ -8,5 +8,6 @@ hatadır. Bu hatayı aşmamızı sağlayan araç "mutable" keyword'üdür.
 - User defined conversion + standard conversion
 - Standard conversion + user defined conversion
 
+-> "explicit" ve "static" kelimeleri bildirimde kullanılır tanımlamada kullanılmaz.  
 
 */
