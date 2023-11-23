@@ -22,6 +22,11 @@ hatadır. Bu hatayı aşmamızı sağlayan araç "mutable" keyword'üdür.
 
 -> Başka modullerde tanımı yapılmış olan ifadeler için "extern" anahtar kelimesi kullanılabilir. 
 
+-> Sınıfların static data memberları inline keyword'ü ile tanımlanabilir ve defining declaration olur. Böylelikle header-only libraries oluşturulabilir.
+
+-> C++17 sonrasında inline keyword'ü değişkenler için de kullanılabilir hale gelmiştir.
+
+
 
 
 */
