@@ -30,5 +30,17 @@ Special Member Functions of Classes:
 
 -> Eğer bir class'ta kısıtlama, gizleme yoksa sınıf elemanları ortadaysa bunlara "aggregate" denir. Invariant kontrolü programcıya bırakılacak ve invariant kullanılmayacaktır. 
 
-  */
+Ex:
+class myClass{
+public:
+ myClass(); //default ctor
+ ~myClass(); //destructor
+ myClass(const myClass&); //copy ctor
+ myClass& operator=(const myClass&); //copy assignment
+ myClass(myClass&& r); //move ctor
+ myClass& operator=(myClass&&); //move assignment
+};
+
+  
+*/
 
