@@ -1,8 +1,8 @@
 /*
 Storage Duration: (Storage Class)
-- Automatic Storage Class
-- Static Storage Class
-- Dynamic Storage Class
+- Automatic Storage Class: Fonksiyon parametreleri ve fonksiyon içinde static kelimesi olmadan tanımlanan yerel değişkenler örnek olarak verilebilirler.
+- Static Storage Class: Main fonksiyonu çağırılmadan yer elde edilir. Global nesneler, static kelimesi ile tanımlanan yerel nesneler, sınıfların static veri elemanları örnek olarak verilebilir.
+- Dynamic Storage Class: "new" ifadeleri ile hayata başlatılan nesnelerin storage class'ıdır. 
 - Thread Local Storage Class
 
 -> Bir nesnenin life spani'ni storage class'ı belirler. 
