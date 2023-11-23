@@ -3,5 +3,10 @@
 hatadır. Bu hatayı aşmamızı sağlayan araç "mutable" keyword'üdür. 
 
 -> Eğer bir sınıf nesnesi için çağırıları ctor'un içinde, başka bir kaynak dosyadaki global bir sınıf değişkeni kullanıyorsak hayata gelmeden kullanma olasılığı meydana gelir ve tanımsız davranış olur. Buna static init fiasco denir. 
-  
+
+-> Eğer bir dönüşüm aşağıdaki dönüşüm sekanslarından biriyle gerçekleştirilebiliyorsa derleyici bu dönüşümü örtülü olarak yapmak zorundadır. 
+- User defined conversion + standard conversion
+- Standard conversion + user defined conversion
+
+
 */
