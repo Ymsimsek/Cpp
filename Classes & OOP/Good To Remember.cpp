@@ -16,6 +16,10 @@ hatadır. Bu hatayı aşmamızı sağlayan araç "mutable" keyword'üdür.
 3. Returning an object of an automatic storage class (optimization)
 1. ve 2. seçenekte copy ve move ctor'lar olmasa dahi syntax hatası olmaz ancak 3'te olur. 
 
+-> Memory Leak: Fonksiyonun işi bittikten sonra elde ettiği bellek alanının geri verilmemesi durumudur.
+
+-> Resource Leak: Örneğin bir nesne yaratıldıktan ve kullanıldıktan sonra destructor'un çağırılmayıp kaynakların geri verilmemesidir. 
+
 
 
 */
