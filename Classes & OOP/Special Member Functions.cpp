@@ -30,6 +30,5 @@ Special Member Functions of Classes:
 
 -> Eğer bir class'ta kısıtlama, gizleme yoksa sınıf elemanları ortadaysa bunlara "aggregate" denir. Invariant kontrolü programcıya bırakılacak ve invariant kullanılmayacaktır. 
 
-
   */
 
