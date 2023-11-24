@@ -52,7 +52,7 @@ namespace onur{
 
 -> Namespace'i isimsiz olarak tanımlasak unnamed namespace olur. Syntax hatası olmaz. Global namespace'i belirtmez.
 
--> Bir namespace içindeki ismin nitelenmeden scope resolution ioperator kullanmadan derleyici tarafından bulunması için 3 tane ayrı araç vardır.
+-> Bir namespace içindeki ismin nitelenmeden scope resolution operator kullanmadan derleyici tarafından bulunması için 3 tane ayrı araç vardır.
 - using declaration
 - using (namespace) directive
 - ADL (Argument Dependent Lookup)
