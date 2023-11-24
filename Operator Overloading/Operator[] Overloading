@@ -1,0 +1,13 @@
+/*
+"[]" Operatörünün Overload'ı: 
+
+-> std::vector, std::deque, std::string, std::array, iterator, smart pointer sınıfları "[]" operatörünü overload ederler. 
+
+-> Dilin kurallarına göre eğer köşeli parantez operatörünün (index operator) dışarıdaki operandı bir sınıf nesnesiyse derleyici, bu ifadeyi
+şu fonksiyon çağrısına dönüşür: "x.operator[](y)". Yani köşeli parantezin dışındaki nesne, fonksiyon hangi nesne için çağırılacaksa o nesneyi
+temsil eder. Yani o nesnenin adresi "this" pointeri olur. Köşeli parantez içindeki ifade ise fonksiyona argüman olarak gönderilir.
+
+-> Köşeli parantez ile oluşturulan bir ifade L-value expressiondur. Örneğin "a[3]". Dolayısıyla overload eden fonksiyonun geri dönüş değeri de 
+L value referans türüdür. 
+
+*/
