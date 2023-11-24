@@ -25,4 +25,23 @@ int main(){
 
 -> "return ax;", ax otomatik ömürlü değişkeni "return std::move(ax);" şeklinde değiştirip R value yaparsak bu sefer pessimistic move oluyor. Böyle olunca da copy elision devre dışı kalır. 
 
+-> Dinamik ömürlü nesneler oluştururken ctor'ların public kısmında çağırılmasına imkan verirsek client'in istediği kadar ctor çağırmasına sebep veririz. Bu sebeple factory function'u public,
+ctor'ları private yapmalıyız. Singleton methodunu kullanırsak bir nesneye ihtiyaç duymadan dinamik ömürlü nesne yaratabiliriz.
+
+Ex:
+
+class Singleton{
+public:
+  Singleton(const Singleton&)=delete;
+  static Singleton* get_instance(){
+    if(!mp)
+      mp=new Singleton();
+    return mp;
+  }
+private:
+  inline static Singleton* mp{}
+  Singleton();  
+};
+
+
 */
