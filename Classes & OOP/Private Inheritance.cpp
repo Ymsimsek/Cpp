@@ -11,5 +11,7 @@ Client tarafında is-a relationship yoktur.
 
 -> Veri elemanlarına sahip olmayan class'ların boyutu 1 byte'dır.
 
+Restricted Polymorphism: Private inheritance ile elde edilen sınıfta, sınıf dışındaki fonksiyonlara private verilerek erişilebilecek sınıfların kontrol edilme mekanızmasıdır.
+
 */
 
