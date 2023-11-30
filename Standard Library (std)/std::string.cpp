@@ -100,8 +100,76 @@ int main(){
   string s3(std::move(s1)); //move ctor çağırılır. s1'i sağ taraf referans yaptığı için move ctor çağırılır. 
 }
 
-Ders 29, 2:06:19
+-> String sınıfının ctor'ları arasında tek karakterli parametreye sahip ctor bulunmaz. Tek karakter içeren bir sınıf nesnesi şu şekillerde oluşturulabilir:
+- string s1("a"); //cstring ctor
+- string s2(1,'A'); //fill ctor
+- string s3{ 'A' }; //init list ctor
 
+-> String sınıfı nesneleri assignment operatörüyle bir karaktere eşitlenebilir. Yani char parametreli atama operatör fonksiyonu vardır.
+
+Ex:
+string s1{"cengizhan"};
+string s2(s1,3); //gizhan 
+string s3(s1,3,3) //giz, substring ctor
+
+-> Substring parametre oluşturulurken belirtilen uzunluk bahsi geçen string değerinden uzunsa bunun anlamı geriye kalan değerlerin hepsinin dahiliyetini belirtir. 
+
+Ex:
+int main(){
+  using namespace std;
+  char str[] = {"gokhan girgin"};
+
+  string s1{str}; //cstr, gokhan girgin
+  string s2{str,3}; //array, gok
+  string s3{str, str+4}; //range, gokh
+}
+
+-> String nesneleri "size_t capacity()const" fonksiyonunu içerirler ve capacity() fonksiyonu kullanılarak ayrılan belleğin kapasitesi kullanılabilir.
+Başka bir deyişle, kapasite dolmadan reallocation yapılmayacaktır.
+
+Ex:
+string str(153, 'A');
+cout<<str.size()<<'\n'<<str.capacity()<<'\n'; //size: 153, capacity:159 olarak görüldü. Dizi 6 karakter daha alsa da reallocation yapılmayacak.
+str+= "gokhan"
+cout<<str.capacity()<<'\n';
+
+-> String ve vector sınıflarında kapasitenin artış katsayısı derleyiciye bağlıdır.
+
+Ex:
+string str(40,'A');
+auto cap = str.capacity();
+int cnt{};
+while(str.size<500'00){
+  str.push_back('A');
+    if(str.capacity() > cap){
+    cout<<++cnt<<".reallocation\n";
+    cout<<"size= "<<str.size()<<'\n';
+    cout<<"capacity= "<<str.capacity()<<'\n';
+    cap=str.capacity();
+    (void)getchar();
+    }
+}
+
+-> reserve() fonksiyonu ile string nesnesi için ayırılan boyut baştan belirlenip reallocation'un önüne geçilebilir. String'in kaplayacağı boyut baştan tanımlandığı
+takdirde reallocation ile kopyalamaya gerek kalmayacaktır. Reserve fonksiyonu size'ı değil kapasiteyi artırır.
+
+Ex:
+string str(40,'A');
+auto cap = str.capacity();
+int cnt{};
+str.reserve(600'000)
+while(str.size<500'00){
+  str.push_back('A');
+    if(str.capacity() > cap){
+    cout<<++cnt<<".reallocation\n";
+    cout<<"size= "<<str.size()<<'\n';
+    cout<<"capacity= "<<str.capacity()<<'\n';
+    cap=str.capacity();
+    (void)getchar();
+    }
+}
+
+-> SSO: Small String Optimization, küçük ve uzunluğu kısa stringlerin doğrudan string nesnesinin içinde oluşturulmasıdır. 
 
 
 */
