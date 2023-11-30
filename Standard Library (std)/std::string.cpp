@@ -171,5 +171,31 @@ while(str.size<500'00){
 
 -> SSO: Small String Optimization, küçük ve uzunluğu kısa stringlerin doğrudan string nesnesinin içinde oluşturulmasıdır. 
 
+Elemanlara Erişim Fonksiyonları:
+
+-> "[]" operatör fonksiyonu yardımıyla string'in öğelerine erişim sağlayabiliriz.
+
+Ex:
+int main(){
+  using namespace std;
+  string str{"burak kose"};
+  for(size_t i{};i<str.length();i++){
+    cout.put(str[i]); //burak kose 
+  }
+  str[2]='s'; // bsrak kose
+  cout<<str<<'\n';
+}
+
+-> const stringlerin index operatörüyle öğe değiştirmesi undefined behaviour'dur.
+
+-> at() fonksiyonu ile öğelere erişim sağlansa dahi const string'lerin öğeleri değiştirilmeye çalışıldığında at() fonksionu exception throw eder ve index operatöründen farkı budur.
+
+-> "at()" ve "[]" vector gibi diğer containerlerda da geçerlidir.
+
+-> front() ve back() fonksiyonları ilk ve son elemanlara referans döndürürler.
+
+
+
+
 
 */
