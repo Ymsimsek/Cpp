@@ -29,3 +29,5 @@
 *RAID: Redundant Array of Independent Disks
 
 *ODR: One Definition Rule
+
+*SSO: Small String Optimization, küçük ve uzunluğu kısa stringlerin doğrudan string nesnesinin içinde oluşturulmasıdır. 
