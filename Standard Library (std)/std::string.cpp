@@ -194,8 +194,34 @@ int main(){
 
 -> front() ve back() fonksiyonları ilk ve son elemanlara referans döndürürler.
 
+Range Based For Loop:
+Ex:
+int main(){
+using namespace std;
+vector ivec{2,4,5,76,32,5,6};
+list ilist{23,543,765,43,74,21};
+string str{"mehmet"};
 
+for(auto iter = ivec.begin();iter!=ivec.end();++iter){
+  cout<<*iter<<' ';
+}
+for(auto iter = ilist.begin();iter!=ilist.end();++iter){
+  cout<<*iter<<' ';
+}
+for(auto iter = str.begin();iter!=str.end();++iter){
+  cout<<*iter<<' ';
+}
+}
+--------Yukarıdaki örneği kendimiz yazıyoruz------------
 
+for(auto i : str) //Range Based Loop
+  cout<<i<<' ';
+for(auto i : iter) //Range Based Loop
+  cout<<i<<' ';
+for(auto i : ilist) //Range Based Loop
+  cout<<i<<' ';
+
+Range based loop örnekte bizim yazdığımız kodun derleyiciye yazdırılmasıdır. Modern C++'da dile eklenmiştir. Diziler için dahi kullanılabilir.
 
 
 */
