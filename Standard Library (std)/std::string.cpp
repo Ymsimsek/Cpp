@@ -438,6 +438,28 @@ cout<<p<<'\n'; //ub var, p dangling pointer haline geldi.
 Ex:
 str.shrink_to_fit();
 
+-> to_string fonksiyonu: Sayıları stringe dönüştüren fonksiyondur. 
+
+Ex:
+string str;
+int x{56};
+str=to_string(x);
+
+S-to fonksiyonları: String'ten başka türlere dönüşüm veren fonksiyondur.
+stoi(): 
+
+Ex:
+string s{"12341abcd"};
+auto ival= stoi(s);
+cout<<ival;
+size_t idx{};
+auto ival2= stoi(s,&idx); //idx a'nın stringteki konumuna eşitlenir bu örnekte 6.
+auto ival3= stoi(s,&idx,16);//16'lık sayı sistemine göre stringteki sayıları dönüştürecek. 
+
+
+
+
+
 
 
 
