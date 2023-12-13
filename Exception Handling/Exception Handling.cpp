@@ -264,7 +264,57 @@ void foo(){
 
 -> Rethrow mekanizmasında da exception yakalanmazsa program yine terminate edilir. 
 
--> Ctorlar için exception handling önemlidir. 
+-> Bir nesne hayata getirilemiyorsa, ctor exception throw etmelidir. 
+Ex:
+class myClass{
+public:
+  myClass(int x){
+    if(x<0){
+      throw std::invalid_argument{"gecersiz arguman"};
+    }
+  }
+  ~myClass(){
+    std::cout<<"destructor myClass\n";
+  }
+};
+
+int main(){
+  try{
+    myClass m{-12}; //Nesnenin ctoru oluşturulurken ctor bloğu içinde exception throw ediliyor. Destructor çağırılmıyor.
+  }
+  catch(const std::exception& ex){
+    std::cout<<"exception caught: "<<ex.what()<<'\n'; 
+  }
+}
+
+-> Exception Safety: Exceptionların yakalanıp, resource leak oluşturulmamasına exception safety denir.
+
+-> Nesneler akıllı pointerlara bağlanırsa ctor içinde exception throw edilse dahi destructor'ları çağırılır.
+
+Function Try Block: Ctor initializer list'de sınıfın data memberlerini initialize ederken ctor'un içinde exception yakalanmasını
+sağlayan mekanizmadır. Herhangi bir fonksiyon için kullanılabilir.
+
+Ex:
+void func(int x)
+try{
+   if(x<0)
+     throw std::runtime_error{"gecersiz deger"};
+}
+catch(const std::bad::alloc&){
+
+  return 1;
+
+}
+
+Exception Guarantees: Bir exception mutlaka aşağıdakilerden birine dahil olmalıdır. 
+1. Basic Guarantee: Exception yakalandığında kesinlikle bir kaynak sızıntısı oluşması ya da programın geçersiz bir duruma
+gelmesinin önüne geçilmesidir. Nesnelerinin state'inin değişmesini engellemez.
+2. Strong Guarantee: Basic garantinin güvencelerini verir ve ek olarak state'i korur. (Ya işini yap ya da işe başlamadan önceki 
+durumu koru) (commit or rollback)
+3. Nothrow Guarantee: Exception vermeyeceğini garanti eder. Derleyici bazı fonksiyonların exception vermeyeceğini bilip daha 
+iyi optimizasyon verir. 
+
+
 
 
 
