@@ -116,8 +116,20 @@ template<typename T>
 myClass<T>::foo(T,T){ //Syntax bu şekildedir
 }
 
+-> Sınıfın bir üye fonksiyonu template olabilir. 
 
-
+Ex:
+class myClass{
+public:
+  template<typename T>
+  void func(T x);
+};
+int main(){
+  myClass m;
+  m.func(1);
+  m.func(1.3);
+  m.func<float>(1);
+}
 
 
 
