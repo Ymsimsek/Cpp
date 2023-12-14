@@ -178,7 +178,8 @@ class Nec{};
 template<typename T, typename U = T>
 class myClass{};
 
--> Explicit Specializetion:Derleyiciye bizim derleyicinin oluşturucağı specialization için farklı bir specialization dikte edilebilir
+Explicit Specializetion:
+->Derleyiciye bizim derleyicinin oluşturucağı specialization için farklı bir specialization dikte edilebilir
 buna explicit specialization denir. Özel durumlar için özel specialization oluşturmaya yarar. 
 Ex:
 template<typename T>
@@ -209,13 +210,69 @@ public:
 
 -> Fonksiyon çağrılarında da explicit specialization kullanılabilir ancak hali hazırda overload mekanizması kullanıldığı için çoğu zaman
 gerek duyulmaz.
+ex.
+template<typename T>
+void func(T){
+ std::cout<<1;
+}
+template<>
+void func(int*){
+ std::cout<<2;
+}
+template<typename T>
+void func(T*){
+  std::cout<<3;
+}
+int main(){
+  int* p = nullptr;
+  func(p);//3 yazılır.
+}
 
--> 
+ex.
+template<typename T>
+void func(T){
+ std::cout<<1;
+}
+template<typename T>
+void func(T*){
+ std::cout<<2;
+}
+template<>
+void func(int*){
+  std::cout<<3;
+}
+int main(){
+  int* p = nullptr;
+  func(p);//3 yazılır.
+}
 
+Partial Specialization: Specializationlar kümesinde bir alt kümeye uyan yani tek bir specialization'a uymayan  bir alternatif kod üreten 
+specialization tekniğidir. 
+Ex:
+template<typename T>
+struct myClass{
+public:
+  myClass(){
+    std::cout<<"primary template type T:"<<typeid(T).name()<<'\n';
+  }
+};
 
+template <typename T>
+struct myClass<T*>{
+  myClass(){
+    std::cout<<"partial spec.\n"
+  }
+};
 
+int main(){
+  myClass<int> m1;
+  myClass<double> m2;
+  myClass<void> m3;
+  myClass<int*> m4;
+  myClass<double**> m5;
+}
 
-
+-> Partial specialization'lar function template'de yoktur sadece class template'de mevcuttur. 
 
 
 
