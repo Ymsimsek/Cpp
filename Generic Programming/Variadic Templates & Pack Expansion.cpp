@@ -123,12 +123,16 @@ int main(){
   sum(1,3,4,6);
 }
 
+*Variadic Templates*
+    ->Recursive function instantiation
+        ->static if
+    -> init list
 
-
-
-
-
-
+    -> Fold expression
+        ->unary right fold
+        ->unary left fold
+        ->binary right fold
+        ->binary left fold
 
 
 
