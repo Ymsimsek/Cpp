@@ -10,8 +10,6 @@
 
 *SFINAE: Substitution Failure Is Not An Error
 
-*CRTP: Curiously Recurring Template Pattern
-
 *ABI: Application Binary Interface
 
 *API: Application Programming Interface
@@ -21,12 +19,6 @@
 *CI: Continuous Integration
 
 *CD: Continuous Delivery
-
-*OOD: Object-Oriented Design
-
-*OOP: Object-Oriented Programming
-
-*RAID: Redundant Array of Independent Disks
 
 *ODR: One Definition Rule
 
