@@ -4,7 +4,7 @@ Inline Expansion:
 Derleyicinin fonksiyonların kodlarını görmesi gerekir. Eğer program içinde 
 tüm statement ve fonksiyon adları belirli ise derleyici, koddaki satırların konumlarını değiştirerek
 performans artırmak için optimizasyon yapar. Bu optimizasyona verilen ad inline expansion'dur. 
-Her derleyicinin inline expansion performanı farklı olabilir. Recursive yapının derinliği de 
+Her derleyicinin inline expansion performansı farklı olabilir. Recursive yapının derinliği de 
 bir faktör olarak bu optimizasyona etki yapabilir. 
 */
 
