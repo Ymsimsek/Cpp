@@ -1,3 +1,4 @@
+/*
 Template Parametre Paketi (Template Parameter Package): Derleyicinin bu mekanizma kullanıldığında template'de kaç tane parametre olduğunu
 kullanım biçiminden anlamasıdır. 
 Ex:
@@ -49,3 +50,4 @@ int main(){
   func(1,2.3,45L); // Fonksiyonun parametre paketinde 3 parametre vardır ve template parametre paketinde de 3 parametre vardır. 
   //Bu örnekte func şunu temsil ediyor: void func<int,double,long>(int,double,long).
 }
+*/
