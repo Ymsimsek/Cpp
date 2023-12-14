@@ -50,4 +50,8 @@ int main(){
   func(1,2.3,45L); // Fonksiyonun parametre paketinde 3 parametre vardır ve template parametre paketinde de 3 parametre vardır. 
   //Bu örnekte func şunu temsil ediyor: void func<int,double,long>(int,double,long).
 }
+
+
+
+
 */
