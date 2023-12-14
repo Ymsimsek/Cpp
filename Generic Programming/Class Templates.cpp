@@ -131,6 +131,89 @@ int main(){
   m.func<float>(1);
 }
 
+-> Sınıf içinde sınıf ismini açılımıyla yazma zorunluluğu yoktur.
+Ex:
+template <typename T>
+class Nec{
+public:
+  Nec func(Nec x){
+    return x;
+  }
+};
+
+-> Sınıf şablonunun üye fonksiyonu template olarak bildirilmedikçe template olmaz. 
+template <typename T>
+class myClass{
+public:
+  void func(T x);//template değil
+};
+
+std::pair : İki farklı türden öğeyi bir araya paketler. Utility başlık dosyasında tanımlanan sınıf şablonudur. 
+Ex:
+template<typename T, typename U>
+struct Pair{
+  T first;
+  U second;
+};
+
+Ex:
+std::pair<int,double>foo();
+auto p=foo();
+
+Ex:
+int main(){
+std::pair<double,double>pd{2.3,5.6};
+std::pair<int,int>pd{2,56};
+}
+
+Ex:
+int main(){
+std::pair p1{4,5.6}; //CTAD, Class Template Argument Deduction
+}
+
+Default Argument:
+
+template<typename T = int, typename U = double>
+class Nec{};
+template<typename T, typename U = T>
+class myClass{};
+
+-> Explicit Specializetion:Derleyiciye bizim derleyicinin oluşturucağı specialization için farklı bir specialization dikte edilebilir
+buna explicit specialization denir. Özel durumlar için özel specialization oluşturmaya yarar. 
+Ex:
+template<typename T>
+class Nec{
+public:
+  Nec(){
+    std::cout<<"primary template type t:"<<typeid(T).name<<'\n';
+  }
+};
+template<>
+class Nec<int> {  //explicit specialization
+public:
+  Nec(){
+    std::cout<<"expclicit template type t:"<<typeid(T).name<<'\n';
+  }
+ };
+
+ int main(){
+   Nec<int> n1;
+   Nec<double>n2;
+   Nec<int*> n3;
+   Nec<Nec<float>> n4; 
+ }
+
+-> Explicit specialization için interface ayrı olmak zorunda değildir. 
+
+-> Template'de sınıf forward declaration yapıldığında specialization yapmak syntax hatası oluşturur. 
+
+-> Fonksiyon çağrılarında da explicit specialization kullanılabilir ancak hali hazırda overload mekanizması kullanıldığı için çoğu zaman
+gerek duyulmaz.
+
+-> 
+
+
+
 
 
 
