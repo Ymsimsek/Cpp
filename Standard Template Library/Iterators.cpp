@@ -109,10 +109,31 @@ void algo(Iter beg, Iter end){
   //
 }
 
+-> Salt okuma amaçlı bir range erişmek istiyorsak "const_iterator" kullanabiliriz.
+
+Ex:
+int main(){
+  using namespace std;
+
+  vector<string> svec{"ali","can","ece","tan"};
+
+  vector<string>::const_iterator iter = svec.begin(); //iter öğeleri gezebilir ancak öğeleri değiştiremez. 
+
+  cout<<*iter<<'\n';
+}
 
 
+-> begin() ve end() çağrılarının geri dönüş türü iteratordür. "auto" ile oluşturulan iterator nesnelerini const yapmak istiyorsak
+cbegin() ve cend() fonksiyonlarına çağrı yapabiliriz.
 
+Ex:
+int main(){
+  using namespace std;
 
+  vector<string> svec{"ali","can","ece","tan"};
+
+  auto iter = svec.cbegin();
+}
 
 
 
