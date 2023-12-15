@@ -22,7 +22,7 @@ son öğeden sonraki konumu bildirir.
 
 -> STL'de sonu if ile biten algoritmalar, ne algoritmasıysa, ne iş yapıyorsa, o işi yaparken bir predicate kullanılır ve true değer dönen değerlerle o işi yapar.  
 
-
+-> STL'deki arama algoritmalarının geri dönüş değeri iteratördür. Aranan değer bulunursa öğenin konumu döndürülür. Yoksa fonksiyona geçilen end konumu döndürülür.
 
 
 */
