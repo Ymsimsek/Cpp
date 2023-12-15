@@ -20,7 +20,7 @@ son öğeden sonraki konumu bildirir.
 
 -> Çoğu yazma algoritması bir range içerisindeki öğerleri, yani kaynağı ilk parametrelerine, ardından kopyalanacağı konumu parametre olarak kullanır. Bkz. copy()
 
--> 
+-> STL'de sonu if ile biten algoritmalar, ne algoritmasıysa, ne iş yapıyorsa, o işi yaparken bir predicate kullanılır ve true değer dönen değerlerle o işi yapar.  
 
 
 
