@@ -135,6 +135,19 @@ int main(){
   auto iter = svec.cbegin();
 }
 
+Reverse Iterator: Bir iterator adepter sınfıtır. rbegin() ve rend() fonksiyonları yardımıyla kullanılabilir. İçerik operatör fonksiyonu
+sarmaladığı iteratör'ün gösterdiği nesneyi döndürmez. Sarmalanan iteratör end konumunu tutuyorsa bu nesne çağırıldığında container'deki
+tutulan end konumundan bir önceki konumu tutar. Artırma işlemi yapıldığında ise bir önceki öğeye doğru ilerler.
+Ex:
+int main(){
+  using namespace std;
+  vector<string> svec{"bilge", "gurkan","halid","kutay"};
+  vector<string>::reverse_iterator iter = svec.rbegin();
+  auto it = iter.base();
+  cout<<(it==svec.end());
+}
+
+
 
 
 
