@@ -147,7 +147,14 @@ int main(){
   cout<<(it==svec.end());
 }
 
+-> Reverse iterator'den bahsedebilmek için sarmalanan iteratörün minimum bidirection iterator kategorisinde olması gerekir. 
 
+
+-> Yazma işlemi yapan bir algoritmanın, bir container'a push_back'e dönüştürmesi için hedef yazı başlangıç konumuna back_inserter ile çağrı yapabiliriz. 
+
+-> front_inserter ile container'in push_front fonksiyonu kullanılmış olarak arzu edilen range, hedefin ön sıralarından başlanarak eklemeye tabi tutulur.
+
+-> inserter fonksiyon çağrıları ile container'in insert fonksiyonu ile yapılan çağrıya dönüştürür. Insertion'un belirli bir iterator konumuna arzu edilen hedef aralığını eklemek için kullanılabilir. 
 
 
 
