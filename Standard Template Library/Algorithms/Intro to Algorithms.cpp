@@ -26,4 +26,11 @@ son öğeden sonraki konumu bildirir.
 
 -> Yazma işlemi yapan bir algoritmanın, bir container'a push_back'e dönüştürmesi için hedef yazı başlangıç konumuna back_inserter ile çağrı yapabiliriz.
 
+-> Yazma işlemi yapan bir algoritmanın, bir container'a push_back'e dönüştürmesi için hedef yazı başlangıç konumuna back_inserter ile çağrı yapabiliriz. 
+
+-> front_inserter ile container'in push_front fonksiyonu kullanılmış olarak arzu edilen range, hedefin ön sıralarından başlanarak eklemeye tabi tutulur.
+
+-> inserter fonksiyon çağrıları ile container'in insert fonksiyonu ile yapılan çağrıya dönüştürür. Insertion'un belirli bir iterator konumuna arzu edilen hedef aralığını eklemek için kullanılabilir. 
+
+
 */
