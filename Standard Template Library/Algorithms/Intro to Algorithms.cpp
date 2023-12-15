@@ -24,6 +24,6 @@ son öğeden sonraki konumu bildirir.
 
 -> STL'deki arama algoritmalarının geri dönüş değeri iteratördür. Aranan değer bulunursa öğenin konumu döndürülür. Yoksa fonksiyona geçilen end konumu döndürülür.
 
--> Yazma işlemi yapan bir algoritmanın, bir container'a push_back'e dönüştürmesi için hedef yazı başlangıç konumuna back_insert ile çağrı yapabiliriz.
+-> Yazma işlemi yapan bir algoritmanın, bir container'a push_back'e dönüştürmesi için hedef yazı başlangıç konumuna back_inserter ile çağrı yapabiliriz.
 
 */
