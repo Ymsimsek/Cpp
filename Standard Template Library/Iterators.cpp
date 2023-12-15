@@ -156,6 +156,150 @@ int main(){
 
 -> inserter fonksiyon çağrıları ile container'in insert fonksiyonu ile yapılan çağrıya dönüştürür. Insertion'un belirli bir iterator konumuna arzu edilen hedef aralığını eklemek için kullanılabilir. 
 
+STL'de iteratorleri manipule eden algoritmalar:  Bunlar fonksiyon şablonlarıdır ve parametre olarak iterator alırdır.
+
+- advance(ref): Iteratorü n pozisyon artırmak eğer bidrectional ise n poziston için azaltmak için kullanılır. Gönderilen ifadeyi değiştirir. 
+
+- distance(iter1,iter2): İki iterasyon arasındaki öğe sayısını bulur. distance(vec.begin(),vec.end()), vecte tutulan öğe sayısı yani size'ını bildirir.
+
+- next(iter,4): Iterator ve tam sayı alır. Iteratorden tam sayı kadar sonraki iteratörü döndürür. Girilen argüman iteratörü değiştirmez. 
+
+- prev(iter,3): Aynı next gibi çalışır. Iteratorden girilen tam sayı kadar önceki iteratorü dödürür. Girilen argüman değiştirilmez.
+
+- iter_swap(iter_x,iter_y): iter_x konumundaki nesne ile iter_y konumundaki nesneler takas eder. 
+
+Tag Dispatch: 
+Ex:
+template<typename Iter>
+void func_impl(Iter beg, Iter end, std::random_access_iterator_tag){
+  std::cout<<"random access\n";
+}
+template<typename Iter>
+void func_impl(Iter beg, Iter end, std::bidirectional_iterator_tag){
+  std::cout<<"bidirectional\n";
+}
+template<typename Iter>
+void func_impl(Iter beg, Iter end, std::forward_iterator_tag){
+  std::cout<<"forward\n";
+}
+template<typename Iter>
+void func(Iter beg, Iter end,){
+  func_impl(beg,end,typename Iter::iterator_category{});
+}
+int main(){
+  using namespace std;
+  vector<int> ivec;
+  list<int> ilist;
+  forward_list<int> flist;
+  func(ivec.begin(),ivec.end()); //Derleyici compile time da func'a gönderilen vektörün iteratör türünü anlar. Funciton overload res. ile random access seçilir.
+  func(ilist.begin(),ilist.begin()); //bidirectional 
+  func(flist.begin(),flist.end()); //forward
+}
+
+
+Ex:
+template<typename Iter>
+void func(Iter beg,Iter end){
+  using cat= typename Iter::iterator_category;
+
+  if constexpr (std::is_same_v<cat,std::random_access_iterator_tag>){
+    std::cout<<"random access\n";
+  }
+  else if constexpr(std::is_same_v<cat,std::bidirectional_iterator_tag>){
+    std::cout<<"bidirectional\n";
+  }
+  else if constexpr(std::is_same_v<cat,std::forward_iterator_tag>){
+    std::cout<<"forward\n";
+  }
+}
+
+Ex. advance():
+
+int main(){
+  
+  using namespace std;
+
+  vector<int> ivec{2,4,6,7,9,3,1};
+  vector<int> ilist{2,4,6,7,9,3,1};
+
+  auto vec_iter= ivec.begin();
+  auto list_iter=ilist.begin();
+
+  advance(vec_iter,3); //iteratörün değerini değiştirir. 
+  advance(list_iter,3);
+
+  cout<<vec_iter[0]; //7 basıldı
+}
+
+Ex. distance():
+int main(){
+
+    using namespace std;
+
+    list mylist{2,5,6,7,4,23,5};
+
+    auto iter1=mylist.begin();
+    auto iter2=mylist.end(); 
+    advance(iter1,2);
+    advance(iter2,-1);
+
+    auto n=distance(iter1,iter2);
+    cout<<"n= "<<n<<'\n';
+    
+}
+
+Ex. next():
+
+int main(){
+
+    using namespace std;
+
+    list mylist{2,5,6,7,4,23,5};
+ 
+    auto iter = next(mylist.begin(),3); //default olarak ikinci parametre 1 değer alır ve birinci parametre sonrasındaki elemanı işaret eder.
+
+    cout<<iter; //next iteratörün kendisini değiştirmez. call by value
+
+}
+
+Ex. prev():
+
+int main(){
+
+  using namespace std;
+
+  list mylist{2,5,6,7,4,23,5};
+
+  auto iter = prev(mylist.end());//iteratörün kendisini değiştirmez. call by value
+
+  cout<<iter;
+
+}
+
+
+Ex. iter_swap:
+
+template<typename Iter1, typename Iter2>
+void IterSwap(Iter1 it1, Iter2 it2){
+  std::swap(*it1,*it2);
+}
+
+Ex.2 iter_swap:
+
+int main(){
+
+  using namespace std;
+
+  vector<string> svec{"ali","can","ela"};
+  list<string> slist{"gul","eda","naz"};
+
+  iter_swap(svec.begin(),slist.begin());
+
+}
+
+
+
+
 
 
 
