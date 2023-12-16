@@ -32,5 +32,6 @@ son öğeden sonraki konumu bildirir.
 
 -> inserter fonksiyon çağrıları ile container'in insert fonksiyonu ile yapılan çağrıya dönüştürür. Insertion'un belirli bir iterator konumuna arzu edilen hedef aralığını eklemek için kullanılabilir. 
 
+-> any_of(), none_of(), all_of() algoritmalarının ortak özelliği boolean döndürmeleridir. 
 
 */
