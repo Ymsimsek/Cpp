@@ -36,6 +36,17 @@ int main(){
   
 }
 
+Ex:
+int main(){
+  using namespace std;
+  vector ivec{1,2,3,4,1,3,2,5,4,6,7,1,1,1,2};
+  vector<int> iivec;
+
+  replace_copy(ivec.begin(),ivec.end(),back_inserter(iivec),1,3);
+  
+}
+
+
 
 
 */
