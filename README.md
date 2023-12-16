@@ -6,4 +6,4 @@
 
 -> May include errors due to typos.  
 
--> For further information or to contact the course owner: https://github.com/necatiergin/
+
