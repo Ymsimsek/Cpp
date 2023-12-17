@@ -34,4 +34,16 @@ son öğeden sonraki konumu bildirir.
 
 -> any_of(), none_of(), all_of() algoritmalarının ortak özelliği boolean döndürmeleridir. 
 
+-> functional kaynak kütüphanesi dahil ederek, unary predicate gereken küçüktür, büyüktür, toplama, çıkarma, bölme vs. gibi çıktıları
+lambda ifadesinin yanı sıra less{}, greater{}, plus{} gibi öğelerle  implementasyon sağlanabilir.
+Ex:
+int main(){
+  using namespace std;
+  vector<int> x{1,4,5,7,8,9,6};
+  vector<int> y{13,24,51,73,8,9,64};
+  vector<int> z;
+  transform(x.begin(),x.end(),y.begin(),back_inserter(z),plus{}); //x ve ynin öğeleri toplanıp z'ye geçildi.
+  
+}
+
 */
