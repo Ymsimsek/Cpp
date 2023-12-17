@@ -297,11 +297,25 @@ int main(){
 
 }
 
+Osteram Iterator Adepter: Bir algoritmanın yazma işlemini bir stream'e, insertion'a, dönüştürür. Referans semantiğiyle bir stream
+nesnesini sarmalar ve seperator string alır. Default olarak aldığı separator string, null string'dir(""). 
 
+Ex:
+#include <iterator>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include<iostream>
+int main(){
+  using namespace std;
+  vector<string> svec{"ali","can","ela"};
+  copy(svec.begin(),svec.end(),ostream_iterator<string>{cout," "});
+  cout<<'\n';
+  copy_if(svec.begin(),svec.end(),ostream_iterator<string>{cout," "}, [svec](const string& s){return s=="ali";});
+}
 
-
-
-
+Iterator Invalidation: Bazı durumlarda iteratorlerin de tıpkı pointerler gibi(dangling pointer) geçersiz hale gelmesi söz konusudur.
+Geçersiz hale gelen iteratorlerin kullanımı büyük hatalardır. 
 
 
 
