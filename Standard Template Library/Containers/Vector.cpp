@@ -231,13 +231,45 @@ bool b = x; //hata değildir. operator bool(), fonksiyonu çağırılır.
 myvec.flip();//Belirli bir indeksteki öğenin ya da öğelerin tamamının free() fonksiyonunu çağırır. Bit seviyesinde implementasyon için...
 
 
+Iterator Invalidation: Bazı durumlarda iteratorlerin de tıpkı pointerler gibi(dangling pointer) geçersiz hale gelmesi söz konusudur.
+Geçersiz hale gelen iteratorlerin kullanımı büyük hatalardır. 
 
+vector: all iterators and references before the point of insertion are unaffected, unless the new container size is greater than the
+previous capacity.
 
+vector: every iterator and reference after the point of erase is invalidated. 
 
+Ex:
+#include <iterator>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include<iostream>
+int main(){
+  using namespace std;
+  
+  vector<string> svec{"ali","aaaa","aaaaa","aaaaaa","aaaaaa","aaaa","aaaaaa","aaaaaa","aaaaa","aaaaa","aaaaa""ali","aaaa","aaaaa","aaaaaa","aaaaaa","aaaa","aaaaaa","aaaaaa","aaaaa","aaaaa","aaaaa"};
+  // 5 karakter uzunluğa sahip stringler silinecek ve 6 karakter uzunluğundaki stringlerden oldukları konuma bir tane daha eklencektir.
+  //silme işlemi yapan fonksiyonlar silinen öğeden sonraki ilk silinmemiş öğenin konumunu döndürür.
+  //ekleme işlemi yapan fonksiyonlar eklenmiş öğenin konumunu döndürür. Dolayısıyla iterator invalidationdan kaçınmanın tek yolu
+  //silme ve ekleme yapıldığında kullanılan iterator'e insert ya da erase işleminin geri dönüş değerini atamamız gerekir.
 
-
-
-
+  copy(svec.begin(),svec.end(),ostream_iterator<string>{cout," "});
+  cout<<'\n';
+  auto iter = svec.begin();
+  while(iter!=svec.end()){
+    if(iter->length() == 5){
+      iter=svec.erase(iter); //silme yapıldı dönüş değeri silinmemiş ilk öğe o yüzden direk eşitlendi.
+    }
+    else if(iter->length() == 6){
+      iter= next(svec.insert(iter,*iter),2); //iter ekleme yapılan konumda, ekleme yapıldığında iteri eklemeden sonraki elemana yani 2 sonrasına eşitledik.
+    }
+    else{
+      ++iter;
+    }
+  }
+  copy(svec.begin(),svec.end(),ostream_iterator<string>{cout," "});
+}
 
 
 
