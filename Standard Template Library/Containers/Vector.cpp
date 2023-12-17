@@ -123,7 +123,7 @@ for(auto riter=svec.rbegin();riter !=svec.crend();++riter){ //reverse loop
 Container Üzerinde Mutation Yapan Fonksiyonlar:
 push_back(const T &r)//copy ctor
 push_back(T &&r)//move ctor
-emplace_back(U&& ...args)//perfect forwarding, nesne içerisinde elemanları ctor initialize etme
+emplace_back(U&& ...args)//perfect forwarding, nesne içerisinde elemanları ctor ile oluşturmak için gereken argümanları ister. 
 
 Ex:
 int main(){
@@ -154,9 +154,104 @@ ivec.assign(10,3333); //10 adet 3333 tutar.
 resize() :size'ı değiştirir. Size küçülüp elemanlar sığmazsa sondaki elemanlar silinir. 
 ivec.resize(10,8);//10 öğeye gelene kadar boş öğeleri 8 ile doldurur. 
   
-  
 }
- 
+
+Silme İşlevleri:
+
+pop_back Fonksiyonu: Containerde tutulan son öğeyi siler. Geri dönüş değeri yoktur. Boş container üzerinde çalışması tanımsız davranıştır.
+
+Ex:
+int main(){
+  using namespace std;
+  vector<string> svec{"ali","mehmet","can","orhan","derya","isil","meryem" };
+  while(!=svec.empty()){
+    svec.pop_back();
+    (void)getchar();
+  }
+}
+
+Iterator Parametreli Silme İşlevleri:
+
+erase() Fonskiyonu: Verilen konum bilgisindeki öğeyi siler. Erase fonksiyonları silinmiş öğe ya da öğelerden sonraki ilk öğenin konumunu
+döndürür. 
+
+Ex:
+int main(){
+  using namespace std;
+  vector<string> svec{"ali","mehmet","can","orhan","derya","isil","meryem" };
+  while(!=svec.empty()){
+    svec.erase(svec.begin()));
+    (void)getchar();
+    }
+}
+Ex:
+int main(){
+  using namespace std;
+  vector<string> svec{"ali","mehmet","can","orhan","derya","isil","meryem" };
+  while(!=svec.empty()){
+    auto iter = svec.erase(svec.begin()));
+    (void)getchar();
+    cout<<*iter<<'\n';
+    }
+}
+
+erase() range silme overload'u:
+Ex:
+int main(){
+  using namespace std;
+  vector<string> svec{"ali","mehmet","can","orhan","derya","isil","meryem" };
+  svec.erase (svec.begin()+1,svec.end()-1);//ilk ve son öğe hariç tüm öğeler silinir. Silinen tüm öğelerden sonraki ilk konumu dödürür
+  //Bu örnek için erase(), vektörün son öğesinin konumunu döndürür. 
+}
+
+Container'in Tüm İçeriğini Silen İşlevler: 
+
+-> clear() Fonksiyonu: Containerdeki tüm öğeleri siler. Ex: svec.clear();
+-> resize() Fonksiyonu:container_name.resize(0) çağrısı da  elemanlarının hepsini siler. 
+-> assign() Fonksiyonu: assign() fonksiyonunun initializer_list overload'u vardır. Ex: svec.assign({});
+-> erase() Fonksiyonu: Container'in begin ve end iteratorleriyle yapılan range overload çağrısı tüm öğeleri siler.
+-> Atama Operator Fonksiyonu: Boş initializer list'e yapılan assignment containerdeki tüm öğeleri siler. Ex: svec = {};
+-> svec= vector<string>{};
+
+Lexicographical Compare: Karşılaştırma yapılırken containerlerde ilk elemandan başlayarak elemanlar karşılaştırılır. İlk farklı öğenin olduğu 
+konumda hangi container'in üyesinin değeri büyükse o container karşılaştırmada daha büyük olacaktır. Tüm öğeler aynı ise
+karşılaştırma sonucu eşit çıkar. 
+
+-> Iterator gösteriminden pointer elde etmek için önce derefrence edip ardından '*' operatörüyle pointer'a çevirebiliriz:
+Ex: int* pvec = &*ivec.begin();
+
+-> Vektörün swap fonksiyonu öğeyi değil pointerları swap eder. 
+
+Vektörün Bool Açılımı: Vector'un bool açılımındaki öğeler bool türünden değildir. Bitlerden oluşur. Ayrı bir partial specializationdur. 
+Ex:
+vector<bool> myvec(20);
+auto x = myvec[0]; //auto için yapılan çıkarım vector<bool>::reference. Reference bir nested class'tır ve içinde bool'a dönüşüm sağlayan
+//öğeler barındırır. 
+bool b = x; //hata değildir. operator bool(), fonksiyonu çağırılır. 
+myvec.flip();//Belirli bir indeksteki öğenin ya da öğelerin tamamının free() fonksiyonunu çağırır. Bit seviyesinde implementasyon için...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
