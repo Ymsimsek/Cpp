@@ -22,8 +22,37 @@ ilk öğenin konumuna eklemeler ya da ilk öğenin konumundan çıkarmalar yapab
 -> Normal koşullarda bir öğeyi silmek istediğimizde find() ile öğenin konumunu bulup erase() ile silebiliyorduk. Tekli bağlı listede
 bu olmaz. Çünkü o öğenin konumunu değil ondan önceki öğenin konumunu bulmamız gerekir ve onu erase_after ile silmemiz gerekir. 
 
+-> Forward list'in iteratorleri bidirectional iterator değil, forward iterator'dur. Dolayısıyla tekli bağlı listelerde, rbegin,
+rend, operator--, crbegin, crend, size(), push_back(), back() fonksiyonları yoktur. 
 
+-> Containerde her öğeden bir tane bırakmak istiyorsak sort() edip unique() çağrısı yapabiliriz.  
 
+Ex:
+#include <forward_list>
+#include <iostream>
+#include <algorithm>
+int main(){
+  using namespace std;
+
+  forward_list<int> myList{3,5,6,8,3,6,1,9};
+  copy(myList.begin(),myList.end(),ostream_iterator<int>{cout," "});
+  std::cout<<'\n';
+
+  auto iter = next(myList.begin(),3);
+  cout<<*iter<<'\n';
+  myList.insert_after(iter,{-7,-8,-9});
+  copy(myList.begin(),myList.end(),ostream_iterator<int>{cout, " "});
+  cout<<'\n';  
+  myList.insert_after(myList.before_begin(),{-7,-8,-9});
+  copy(myList.begin(),myList.end(),ostream_iterator<int>{cout, " "});
+  cout<<'\n';  
+  myList.erase_after(myList.begin(),next(myList.begin(),3));
+  copy(myList.begin(),myList.end(),ostream_iterator<int>{cout, " "});
+  cout<<'\n';  
+   myList.erase_after(myList.before_begin(),next(myList.begin(),3));
+  copy(myList.begin(),myList.end(),ostream_iterator<int>{cout, " "});
+  cout<<'\n'; 
+}
 
 
 
